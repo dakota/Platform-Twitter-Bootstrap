@@ -14,13 +14,12 @@ Includes:
 
 Setup:
 -------
-* Rememer to load the plugin in app/Config/bootstrap.php
+# Load the plugin in Config/bootstrap.php
 
 	// Load TwitterBootstrap plugin, without loading bootstrap
-	CakePlugin::load('TwitterBootstrap', array('bootstrap' => false));
+	CakePlugin::load('TwitterBootstrap');
 
-* 'Form' helper need to be changed to 'BootstrapForm' helper
-* 'Paginator' helper need to be changed to 'BootstrapPaginator' helper
+# Use the BootstrapForm and BootstrapPaginator helpers instead of the default Form and Paginator
 
 	// Change default Form & Paginator
 	public $helpers = array(
@@ -28,26 +27,4 @@ Setup:
 		'Paginator' => array('className' => 'TwitterBootstrap.BootstrapPaginator'),
 	);
 
-
-Using Crud plugin aswell?
-	Add this to $helpers
-		'Js'		=> array('className' => 'Crud.CrudJs', 'Jquery')
-
-Usage ex.
--------
-	In your default.ctp
-	echo $this->Html->css('/twitter_bootstrap/bootstrap.min');
-	echo $this->Html->script('/twitter_bootstrap/js/bootstrap-buttons');
-	echo $this->Html->script('/twitter_bootstrap/js/bootstrap-alerts');
-	echo $this->Html->script('/twitter_bootstrap/js/bootstrap-dropdown');
-	echo $this->Html->script('/twitter_bootstrap/js/bootstrap-modal');
-	echo $this->Html->script('/twitter_bootstrap/js/bootstrap-popover');
-	echo $this->Html->script('/twitter_bootstrap/js/bootstrap-scrollspy');
-	echo $this->Html->script('/twitter_bootstrap/js/bootstrap-tabs');
-	echo $this->Html->script('/twitter_bootstrap/js/bootstrap-twipsy');
-
-
-Christian Winther
-Kim Egede Jakobsen
-Andreas Kristiansen
-@Nodes.dk 2012
+# And that's it! Use as normal
