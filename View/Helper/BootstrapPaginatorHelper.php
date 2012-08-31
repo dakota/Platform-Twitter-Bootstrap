@@ -53,7 +53,7 @@ class BootstrapPaginatorHelper extends PaginatorHelper {
 		}
 
 		$defaults = array(
-			'tag' => 'span', 'before' => null, 'after' => null, 'model' => $this->defaultModel(), 'class' => null,
+			'tag' => 'li', 'before' => null, 'after' => null, 'model' => $this->defaultModel(), 'class' => null,
 			'modulus' => '8', 'separator' => ' | ', 'first' => null, 'last' => null, 'ellipsis' => '...',
 		);
 		$options += $defaults;
@@ -155,4 +155,41 @@ class BootstrapPaginatorHelper extends PaginatorHelper {
 
 		return $out;
 	}
+
+	public function first($first = '<< first', $options = array()) {
+		$options = array_merge(array(
+			'tag' => 'li',
+			), $options);
+		return parent::first($first, $options);
+	}
+
+	public function prev($title = '<< Previous', $options = array(), $disabledTitle = null, $disabledOptions = array()) {
+		$options = array_merge(array(
+			'tag' => 'li',
+			), $options);
+		$disabledOptions = array_merge(array(
+			'tag' => 'li',
+			), $disabledOptions);
+		return parent::prev($title, $options, $disabledTitle, $disabledOptions);
+	}
+
+	public function next($title = 'Next >>', $options = array(), $disabledTitle = null, $disabledOptions = array()) {
+		$options = array_merge(array(
+			'tag' => 'li',
+			), $options);
+		$disabledOptions = array_merge(array(
+			'tag' => 'li',
+			), $disabledOptions);
+		return parent::next($title, $options, $disabledTitle, $disabledOptions);
+	}
+
+	public function last($last = 'last >>', $options = array()) {
+		$options = array_merge(array(
+			'tag' => 'li',
+			), $options);
+		return parent::last($last, $options);
+	}
+
+
+
 }
